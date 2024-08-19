@@ -2,51 +2,100 @@
 if (isset($_POST)) {
     if (isset($_POST['gold'])) {
         $price = 24000000;
-        try {
-            $curl = curl_init();
+        $curl = curl_init();
 
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://gateway.zibal.ir/v1/request',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_SSL_VERIFYPEER =>false,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => '{
-  "merchant": "zibal",
-  "amount": 100000,
-  "callbackUrl": "http://localhost/PHP-multi-project/shop/verify.php"
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://gateway.zibal.ir/v1/request',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => '{
+"merchant": "zibal",
+"amount": ' . $price . ',
+"callbackUrl": "http://localhost/PHP-multi-project/shop/verify.php"
 }',
-                CURLOPT_HTTPHEADER => array(
-                    'Content-Type: application/json'
-                ),
-            ));
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
 
-            $response = curl_exec($curl);
-            var_dump($response);
-
-            curl_close($curl);
-            if ($response === false) {
-                throw new Exception(curl_error($curl), curl_errno($curl));
-            }
-
-        } catch (Exception $e) {
-            trigger_error(
-                sprintf(
-                    'Curl failed with error #%d: %s',
-                    $e->getCode(),
-                    $e->getMessage()
-                ),
-                E_USER_ERROR
-            );
+        $response = curl_exec($curl);
+        $result = (array) json_decode($response);
+        if ($result['result'] == 100) {
+            $id = $result['trackId'];
+            header("location:https://gateway.zibal.ir/start/$id");
         }
+
+        curl_close($curl);
     } elseif (isset($_POST['silver'])) {
         $price = 15000000;
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://gateway.zibal.ir/v1/request',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => '{
+"merchant": "zibal",
+"amount": ' . $price . ',
+"callbackUrl": "http://localhost/PHP-multi-project/shop/verify.php"
+}',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $result = (array) json_decode($response);
+        if ($result['result'] == 100) {
+            $id = $result['trackId'];
+            header("location:https://gateway.zibal.ir/start/$id");
+        }
+
+        curl_close($curl);
     } elseif (isset($_POST['bronze'])) {
         $price = 1080000;
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://gateway.zibal.ir/v1/request',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => '{
+"merchant": "zibal",
+"amount": ' . $price . ',
+"callbackUrl": "http://localhost/PHP-multi-project/shop/verify.php"
+}',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $result = (array) json_decode($response);
+        if ($result['result'] == 100) {
+            $id = $result['trackId'];
+            header("location:https://gateway.zibal.ir/start/$id");
+        }
+
+        curl_close($curl);
     }
 }
 ?>
