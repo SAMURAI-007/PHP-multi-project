@@ -98,7 +98,7 @@
                         <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
                             <h2 class="fs-4 fw-bold">form validation</h2>
-                            <a class="mb-0" href="./login">Click here to try the form validation library!</a>
+                            <a class="mb-0" href="./validation-lib/single.php">Click here to try the form validation library!</a>
                         </div>
                     </div>
                 </div>
