@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Heroic Features - Start Bootstrap Template</title>
+    <title>PHP multi project</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -61,8 +61,8 @@
                     <div class="card bg-light border-0 h-100">
                         <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
-                            <h2 class="fs-4 fw-bold">Jumbotron hero header</h2>
-                            <p class="mb-0">The heroic part of this template is the jumbotron hero header!</p>
+                            <h2 class="fs-4 fw-bold">Multi functional blog</h2>
+                            <a href="./blog/" class="mb-0">Click here to try the blog !</a>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                         <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
                             <h2 class="fs-4 fw-bold">form validation</h2>
-                            <a class="mb-0" href="./validation-lib/single.php">Click here to try the form validation library!</a>
+                            <a class="mb-0" href="./validation-lib/">Click here to try the form validation library!</a>
                         </div>
                     </div>
                 </div>

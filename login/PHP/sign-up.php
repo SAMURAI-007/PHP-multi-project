@@ -15,7 +15,7 @@ if (isset($_POST)) {
     $number = $_POST['number'];
     $password = $_POST['password'];
 
-    $res = $conn->prepare("INSERT INTO `user`(`username`, `email`, `phone`, `password`) VALUES (?,?,?,?)");
+    $res = $conn->prepare("INSERT INTO `user`(`Username`, `email`, `phone`, `password`) VALUES (?,?,?,?)");
     $res->bindValue(1, $username);
     $res->bindValue(2, $email);
     $res->bindValue(3, $number);

@@ -15,7 +15,7 @@ if (isset($_POST)) {
     $udata = $_POST['udata'];
     $password = $_POST['pass'];
 
-    $res = $conn->prepare("SELECT * FROM `user` WHERE (username = :key OR email = :key OR phone = :key) AND (password = :password)");
+    $res = $conn->prepare("SELECT * FROM `user` WHERE (Username = :key OR email = :key OR phone = :key) AND (password = :password)");
     $res->bindValue(":key",$udata);
     $res->bindValue(":password",$password);
     $res->execute();
