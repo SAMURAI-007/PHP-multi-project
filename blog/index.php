@@ -4,10 +4,11 @@
 * Template URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
-<?php 
+<?php
 require_once("../config/database.php");
 ?>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,6 +38,7 @@ require_once("../config/database.php");
 
 	<title>Full blog</title>
 </head>
+
 <body>
 
 	<div class="site-mobile-menu site-navbar-target">
@@ -54,7 +56,8 @@ require_once("../config/database.php");
 				<div class="site-navigation">
 					<div class="row g-0 align-items-center">
 						<div class="col-2">
-							<a href="index.html" class="logo m-0 float-start">Blogy<span class="text-primary">.</span></a>
+							<a href="index.html" class="logo m-0 float-start">Blogy<span
+									class="text-primary">.</span></a>
 						</div>
 						<div class="col-8 text-center">
 							<form action="#" class="search-form d-inline-block d-lg-none">
@@ -71,28 +74,32 @@ require_once("../config/database.php");
 										<li><a href="about.html">About</a></li>
 										<li><a href="contact.html">Contact Us</a></li>
 										<li class="has-children">
-											<a href="#">User</a>
-											<ul class="dropdown">
-												<li><a><?php echo "username: " . $_SESSION['name'];  ?></a></li>
-												<li><a><?php echo "role: " . $_SESSION['role'] ?></a></li>
-												<li><a href="<?php echo "./".$_SESSION['role'] ; ?>">Dashboard</a></li>
-											</ul>
-										</li>
+											<?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
+												<a href="#">User</a>
+												<ul class="dropdown">
+													<li><a><?php echo "username: " . $_SESSION['name']; ?></a></li>
+													<li><a><?php echo "role: " . $_SESSION['role'] ?></a></li>
+													<li><a href="<?php echo "./" . $_SESSION['role']; ?>">Dashboard</a></li>
+												</ul>
+											</li>
+										<?php } ?>
 									</ul>
 								</li>
 								<?php
-									if ($_SESSION['login'] == true) {
-										?><li><a href="./logout.php">Logout</a></li> <?php
-									} else {
-										?>
-										 <li><a href="./login.php">Login</a></li>
-										<?php
-									}
+								if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+									?>
+									<li><a href="./logout.php">Logout</a></li> <?php
+								} else {
+									?>
+									<li><a href="./login.php">Login</a></li>
+									<?php
+								}
 								?>
 							</ul>
 						</div>
 						<div class="col-2 text-end">
-							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+							<a href="#"
+								class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
 								<span></span>
 							</a>
 							<form action="#" class="search-form d-none d-lg-inline-block">
@@ -185,7 +192,8 @@ require_once("../config/database.php");
 								</a>
 								<span class="date">Apr. 14th, 2022</span>
 								<h2><a href="single.html">Thought you loved Python? Wait until you meet Rust</a></h2>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis
+									inventore vel voluptas.</p>
 								<p><a href="single.html" class="btn btn-sm btn-outline-primary">Read More</a></p>
 							</div>
 						</div>
@@ -196,7 +204,8 @@ require_once("../config/database.php");
 								</a>
 								<span class="date">Apr. 14th, 2022</span>
 								<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis
+									inventore vel voluptas.</p>
 								<p><a href="single.html" class="btn btn-sm btn-outline-primary">Read More</a></p>
 							</div>
 						</div>
@@ -207,21 +216,24 @@ require_once("../config/database.php");
 						<li>
 							<span class="date">Apr. 14th, 2022</span>
 							<h3><a href="single.html">Don’t assume your user data in the cloud is safe</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore
+								vel voluptas.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</li>
 
 						<li>
 							<span class="date">Apr. 14th, 2022</span>
 							<h3><a href="single.html">Meta unveils fees on metaverse sales</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore
+								vel voluptas.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</li>
 
 						<li>
 							<span class="date">Apr. 14th, 2022</span>
 							<h3><a href="single.html">UK sees highest inflation in 30 years</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore
+								vel voluptas.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</li>
 					</ul>
@@ -303,7 +315,8 @@ require_once("../config/database.php");
 								</a>
 								<span class="date">Apr. 14th, 2022</span>
 								<h2><a href="single.html">Thought you loved Python? Wait until you meet Rust</a></h2>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis
+									inventore vel voluptas.</p>
 								<p><a href="single.html" class="btn btn-sm btn-outline-primary">Read More</a></p>
 							</div>
 						</div>
@@ -314,7 +327,8 @@ require_once("../config/database.php");
 								</a>
 								<span class="date">Apr. 14th, 2022</span>
 								<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis
+									inventore vel voluptas.</p>
 								<p><a href="single.html" class="btn btn-sm btn-outline-primary">Read More</a></p>
 							</div>
 						</div>
@@ -325,21 +339,24 @@ require_once("../config/database.php");
 						<li>
 							<span class="date">Apr. 14th, 2022</span>
 							<h3><a href="single.html">Don’t assume your user data in the cloud is safe</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore
+								vel voluptas.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</li>
 
 						<li>
 							<span class="date">Apr. 14th, 2022</span>
 							<h3><a href="single.html">Meta unveils fees on metaverse sales</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore
+								vel voluptas.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</li>
 
 						<li>
 							<span class="date">Apr. 14th, 2022</span>
 							<h3><a href="single.html">UK sees highest inflation in 30 years</a></h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore
+								vel voluptas.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</li>
 					</ul>
@@ -361,110 +378,66 @@ require_once("../config/database.php");
 			<div class="row">
 				<div class="col-lg-4 mb-4">
 					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_7_horizontal.jpg" alt="Image" class="img-fluid"></a>
+						<a href="single.html" class="img-link"><img src="images/img_7_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
 						<div class="excerpt">
-							
+
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
 							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_1.jpg"
+										alt="Image" class="img-fluid"></figure>
 								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 mb-4">
 					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_6_horizontal.jpg" alt="Image" class="img-fluid"></a>
+						<a href="single.html" class="img-link"><img src="images/img_6_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
 						<div class="excerpt">
-							
+
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
 							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_2.jpg" alt="Image" class="img-fluid"></figure>
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_2.jpg"
+										alt="Image" class="img-fluid"></figure>
 								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 mb-4">
 					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_5_horizontal.jpg" alt="Image" class="img-fluid"></a>
+						<a href="single.html" class="img-link"><img src="images/img_5_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
 						<div class="excerpt">
-							
+
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
 							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_3.jpg" alt="Image" class="img-fluid"></figure>
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_3.jpg"
+										alt="Image" class="img-fluid"></figure>
 								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
-							<p><a href="#" class="read-more">Continue Reading</a></p>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-lg-4 mb-4">
-					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_4_horizontal.jpg" alt="Image" class="img-fluid"></a>
-						<div class="excerpt">
-							
-
-							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_4.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-								<span>&nbsp;-&nbsp; July 19, 2019</span>
-							</div>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
-							<p><a href="#" class="read-more">Continue Reading</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 mb-4">
-					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_3_horizontal.jpg" alt="Image" class="img-fluid"></a>
-						<div class="excerpt">
-							
-
-							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_5.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-								<span>&nbsp;-&nbsp; July 19, 2019</span>
-							</div>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
-							<p><a href="#" class="read-more">Continue Reading</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 mb-4">
-					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_2_horizontal.jpg" alt="Image" class="img-fluid"></a>
-						<div class="excerpt">
-							
-
-							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_4.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
-								<span>&nbsp;-&nbsp; July 19, 2019</span>
-							</div>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</div>
 					</div>
@@ -473,61 +446,141 @@ require_once("../config/database.php");
 
 				<div class="col-lg-4 mb-4">
 					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_1_horizontal.jpg" alt="Image" class="img-fluid"></a>
+						<a href="single.html" class="img-link"><img src="images/img_4_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
 						<div class="excerpt">
-							
+
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
 							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_3.jpg" alt="Image" class="img-fluid"></figure>
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_4.jpg"
+										alt="Image" class="img-fluid"></figure>
 								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 mb-4">
 					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_4_horizontal.jpg" alt="Image" class="img-fluid"></a>
+						<a href="single.html" class="img-link"><img src="images/img_3_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
 						<div class="excerpt">
-							
-							
+
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
 							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_2.jpg" alt="Image" class="img-fluid"></figure>
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_5.jpg"
+										alt="Image" class="img-fluid"></figure>
 								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 mb-4">
 					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="images/img_3_horizontal.jpg" alt="Image" class="img-fluid"></a>
+						<a href="single.html" class="img-link"><img src="images/img_2_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
 						<div class="excerpt">
-							
-							
+
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
 							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_5.jpg" alt="Image" class="img-fluid"></figure>
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_4.jpg"
+										alt="Image" class="img-fluid"></figure>
 								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
+							<p><a href="#" class="read-more">Continue Reading</a></p>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-4 mb-4">
+					<div class="post-entry-alt">
+						<a href="single.html" class="img-link"><img src="images/img_1_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
+						<div class="excerpt">
+
+
+							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
+							<div class="post-meta align-items-center text-left clearfix">
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_3.jpg"
+										alt="Image" class="img-fluid"></figure>
+								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+								<span>&nbsp;-&nbsp; July 19, 2019</span>
+							</div>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
+							<p><a href="#" class="read-more">Continue Reading</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 mb-4">
+					<div class="post-entry-alt">
+						<a href="single.html" class="img-link"><img src="images/img_4_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
+						<div class="excerpt">
+
+
+
+							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
+							<div class="post-meta align-items-center text-left clearfix">
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_2.jpg"
+										alt="Image" class="img-fluid"></figure>
+								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+								<span>&nbsp;-&nbsp; July 19, 2019</span>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
+							<p><a href="#" class="read-more">Continue Reading</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 mb-4">
+					<div class="post-entry-alt">
+						<a href="single.html" class="img-link"><img src="images/img_3_horizontal.jpg" alt="Image"
+								class="img-fluid"></a>
+						<div class="excerpt">
+
+
+
+							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
+							<div class="post-meta align-items-center text-left clearfix">
+								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_5.jpg"
+										alt="Image" class="img-fluid"></figure>
+								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+								<span>&nbsp;-&nbsp; July 19, 2019</span>
+							</div>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor
+								laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo,
+								aliquid, dicta beatae quia porro id est.</p>
 							<p><a href="#" class="read-more">Continue Reading</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 	</section>
 
@@ -578,7 +631,7 @@ require_once("../config/database.php");
 								<h2>Startup vs corporate: What job suits you best?</h2>
 							</div>
 						</a>
-					</div>  
+					</div>
 
 				</div>
 			</div>
@@ -593,7 +646,8 @@ require_once("../config/database.php");
 				<div class="col-lg-4">
 					<div class="widget">
 						<h3 class="mb-4">About</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+							there live the blind texts.</p>
 					</div> <!-- /.widget -->
 					<div class="widget">
 						<h3>Social</h3>
@@ -676,41 +730,45 @@ require_once("../config/database.php");
 
 			<div class="row mt-5">
 				<div class="col-12 text-center">
-          <!-- 
-              **==========
-              NOTE: 
-              Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
-              **==========
-            -->
+					<!-- 
+			  **==========
+			  NOTE: 
+			  Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
+			  **==========
+			-->
 
-            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> <!-- License information: https://untree.co/license/ -->
-            </p>
-          </div>
-        </div>
-      </div> <!-- /.container -->
-    </footer> <!-- /.site-footer -->
+					<p>Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash;
+						Designed with love by <a href="https://untree.co">Untree.co</a>
+						<!-- License information: https://untree.co/license/ -->
+					</p>
+				</div>
+			</div>
+		</div> <!-- /.container -->
+	</footer> <!-- /.site-footer -->
 
-    <!-- Preloader -->
-    <div id="overlayer"></div>
-    <div class="loader">
-    	<div class="spinner-border text-primary" role="status">
-    		<span class="visually-hidden">Loading...</span>
-    	</div>
-    </div>
-
-
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-
-    <script src="js/flatpickr.min.js"></script>
+	<!-- Preloader -->
+	<div id="overlayer"></div>
+	<div class="loader">
+		<div class="spinner-border text-primary" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
 
 
-    <script src="js/aos.js"></script>
-    <script src="js/glightbox.min.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/tiny-slider.js"></script>
 
-    
-  </body>
-  </html>
+	<script src="js/flatpickr.min.js"></script>
+
+
+	<script src="js/aos.js"></script>
+	<script src="js/glightbox.min.js"></script>
+	<script src="js/navbar.js"></script>
+	<script src="js/counter.js"></script>
+	<script src="js/custom.js"></script>
+
+
+</body>
+
+</html>
