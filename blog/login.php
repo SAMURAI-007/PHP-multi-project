@@ -15,6 +15,7 @@ if (isset($_POST['sub'])) {
     $_SESSION["login"] = true;
     $_SESSION["role"] = $data['role'];
     $_SESSION["name"] = $data['Username'];
+    $_SESSION["id"] = $data["id"];
     header("location:./index.php");
   }
 

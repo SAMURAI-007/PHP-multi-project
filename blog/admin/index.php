@@ -7,7 +7,7 @@ $udata = $usr->fetchAll(PDO::FETCH_ASSOC);
 
 $wri = $conn->prepare("SELECT * FROM `user` WHERE `role` = 'writer'");
 $wri->execute();
-$wdata = $usr->fetchAll(PDO::FETCH_ASSOC);
+$wdata = $wri->fetchAll(PDO::FETCH_ASSOC);
 
 $post = $conn->prepare("SELECT * FROM `post`");
 $post->execute();
@@ -91,6 +91,20 @@ $pdata = $post->fetchAll(PDO::FETCH_ASSOC);
                                         <a class="nav-link" href="401.html">401 Page</a>
                                         <a class="nav-link" href="404.html">404 Page</a>
                                         <a class="nav-link" href="500.html">500 Page</a>
+                                    </nav>
+                                </div>
+                            </nav>
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapsePost" aria-expanded="false"
+                                    aria-controls="pagesCollapsePost">
+                                    Posts
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapsePost" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="addPost.php">Add a new post</a>
                                     </nav>
                                 </div>
                             </nav>
