@@ -14,7 +14,9 @@ a php project offering various services
 </br>
 ## Upcoming features :
 1.Ticket based support service
+</br>
 2.User dashboard in blog section
+</br>
 3.Like and comment in blog section
 </br>
 ## Live demo
