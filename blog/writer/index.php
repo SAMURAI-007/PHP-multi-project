@@ -1,12 +1,11 @@
 <?php
 require_once("../../config/database.php");
 
-$usr = $conn->prepare("SELECT * FROM `user`");
+$id = $_SESSION['id'];
+$usr = $conn->prepare("SELECT * FROM `post` WHERE `writer_id`=$id");
 $usr->execute();
 $data = $usr->fetchAll(PDO::FETCH_ASSOC);
 
-$resw = $conn->prepare("SELECT * FROM `user` WHERE `role` = 'writer'");
-$resw->execute();
 
 ?>
 <html lang="en">
@@ -83,7 +82,7 @@ $resw->execute();
                                 <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
                                     data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">write a new post</a>
+                                        <a class="nav-link" href="./addPost.php">write a new post</a>
                                     </nav>
                                 </div>
                             </nav>
@@ -114,7 +113,7 @@ $resw->execute();
                             <div class="card bg-primary text-white mb-4">
                                 <div class="card-body">Posts</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">nope</a>
+                                    <a class="small text-white stretched-link" href="#"><?php ?></a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
