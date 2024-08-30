@@ -12,5 +12,10 @@ a php project offering various services
 </br>
 5.Built in form validation library
 </br>
+## Upcoming features :
+1.Ticket based support service
+2.User dashboard in blog section
+3.Like and comment in blog section
+</br>
 ## Live demo
 a live demo will be available when the project is complete
