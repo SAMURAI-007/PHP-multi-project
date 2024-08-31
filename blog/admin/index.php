@@ -206,10 +206,10 @@ $pdata = $post->fetchAll(PDO::FETCH_ASSOC);
                                                 $wrid->execute();
                                                 $wname = $wrid->fetch(PDO::FETCH_ASSOC);
                                                 echo $wname['username']; ?></td>
-                                                <td><a style="margin-right: 5px;" class="btn btn-primary btn-sm">Show
+                                                <td><a style="margin-right: 5px;" href="../single.php?id=<?php echo $pitem['id']; ?>" class="btn btn-primary btn-sm">Show
                                                         Post</a><a style="margin-right: 5px;"
-                                                        class="btn btn-warning btn-sm">Edit Post</a><a
-                                                        style="margin-right: 5px;" class="btn btn-danger btn-sm">Delete
+                                                        class="btn btn-warning btn-sm" href="./pedit.php?id=<?php echo $pitem['id'] ; ?>">Edit Post</a><a
+                                                        style="margin-right: 5px;" href="./pdelete.php?id=<?php echo $pitem['id'] ; ?>" class="btn btn-danger btn-sm">Delete
                                                         Post</a></td>
                                             </tr>
                                         <?php } ?>
@@ -240,9 +240,9 @@ $pdata = $post->fetchAll(PDO::FETCH_ASSOC);
                                                 <td><?php echo ++$row; ?></td>
                                                 <td><?php echo $uitem['Username']; ?></td>
                                                 <td><?php echo $uitem['role']; ?></td>
-                                                <td><a style="margin-right: 5px;" class="btn btn-warning btn-sm">Edit
+                                                <td><a style="margin-right: 5px;" href="./uedit.php?id=<?php echo $uitem['id']; ?>" class="btn btn-warning btn-sm">Edit
                                                         User</a><a style="margin-right: 5px;"
-                                                        class="btn btn-danger btn-sm">Delete
+                                                        class="btn btn-danger btn-sm" href="./udelete.php?id=<?php echo $uitem['id']; ?>" >Delete
                                                         User</a></td>
                                             </tr>
                                         <?php } ?>

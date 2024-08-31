@@ -17,6 +17,8 @@ if (isset($_POST['sub'])) {
     $_SESSION["name"] = $data['Username'];
     $_SESSION["id"] = $data["id"];
     header("location:./index.php");
+  }else {
+    echo "<script>alert('Username or password incorrect!');</script>";
   }
 
 }
